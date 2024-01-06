@@ -1,0 +1,52 @@
+{
+    {
+    "id": 1,
+    "name": 'The Shawshank Redemption',
+    year: 1994,
+    director: 'Frank Darabont',
+    actors: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton', 'William Sadler'
+        ],
+    budget: 25000000,
+    rating: 9.3
+    },
+    {
+    id: 2,
+    name: 'The Godfather',
+    year: 1972,
+    director: 'Francis Ford Coppola',
+    actors: ['Marlon Brando', 'Al Pacino', 'James Caan', 'Richard S. Castellano'
+        ],
+    budget: 6000000,
+    rating: 9.2
+    },
+    {
+    id: 3,
+    name: 'The Dark Knight',
+    year: 2008,
+    director: 'Christopher Nolan',
+    actors: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart', 'Michael Caine'
+        ],
+    budget: 185000000,
+    rating: 9.0
+    },
+    {
+    id: 4,
+    name: 'The Lord of the Rings: The Return of the King',
+    year: 2003,
+    director: 'Peter Jackson',
+    actors: ['Elijah Wood', 'Viggo Mortensen', 'Ian McKellen', 'Orlando Bloom'
+        ],
+    budget: 94000000,
+    rating: 8.9
+    },
+    {
+    id: 5,
+    name: 'Pulp Fiction',
+    year: 1994,
+    director: 'Quentin Tarantino',
+    actors: ['John Travolta', 'Uma Thurman', 'Samuel L. Jackson', 'Bruce Willis'
+        ],
+    budget: 8000000,
+    rating: 8.9
+    }
+}
