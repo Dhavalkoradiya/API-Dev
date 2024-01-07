@@ -17,15 +17,15 @@ db();
 const Movie = require('./models/movie');
 
 
-app.get('/api/movies', (req, res) => {
-    Movie.find()
+app.get('/api/movies', async (req, res) => {
+    await Movie.find()
         .then(movies => res.send(movies))
         .catch(err => console.error(err.message));
     // res.send(movies);
 });
 
-app.get('/api/movies/:id', (req, res) => {
-    Movie.findById(req.params.id)
+app.get('/api/movies/:id', async (req, res) => {
+    await Movie.findById(req.params.id)
             .then(movie => res.send(movie))
             .catch(err => res.status(404).send(err.message));
     // const movie = movies.find(m => m.id === parseInt(req.params.id));
@@ -33,8 +33,8 @@ app.get('/api/movies/:id', (req, res) => {
     // res.send(movie);
 });
 
-app.post('/api/movies', (req, res) => {
-    Movie.create(req.body)
+app.post('/api/movies', async (req, res) => {
+    await Movie.create(req.body)
             .then(movie => res.send(movie))
             .catch(err => console.error(err.message));
 
@@ -51,8 +51,8 @@ app.post('/api/movies', (req, res) => {
     // res.send(movie);
 });
 
-app.put('/api/movies/:id', (req, res) => {
-    Movie.findByIdAndUpdate(req.params.id, req.body)
+app.put('/api/movies/:id', async (req, res) => {
+    await Movie.findByIdAndUpdate(req.params.id, req.body)
           .then(movie => res.send(movie))
           .catch(err => console.error(err.message));
     // const movie = movies.find(m => m.id === parseInt(req.params.id));
