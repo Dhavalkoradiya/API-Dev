@@ -38,7 +38,7 @@ JWT_SECRET=your_secret
 {
     "token": "your_token"
 }
-
+```
 
 ### Movies
 #### Create a movie

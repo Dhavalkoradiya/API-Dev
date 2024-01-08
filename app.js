@@ -21,7 +21,7 @@ mongoose.connect(process.env.DATABASE_URL)
 // import movie routes
 const movieRoutes = require('./routes/movie');
 // import user routes
-const userRoutes = require('./routes/user');
+const authRoutes = require('./routes/auth');
 
 // home route
 app.get("/", (req, res) => {
@@ -31,8 +31,8 @@ app.get("/", (req, res) => {
 // use movie routes
 app.use('/api/movies', movieRoutes);
 
-// use user routes
-app.use('/api/users', userRoutes);
+// use auth routes
+app.use('/api/auth', authRoutes);
 
 
 // start the server
