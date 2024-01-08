@@ -36,6 +36,6 @@ app.use('/api/users', userRoutes);
 
 
 // start the server
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log('The application is running on localhost:3000!')
 });

@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
 // get a single movie
 router.get('/:id', async (req, res) => {
     await Movie.findById(req.params.id)
-            .then(movie => res.send(movie))
-            .catch(err => res.status(404).send(err.message));
+        .then(movie => res.send(movie))
+        .catch(err => res.status(404).send(err.message));
     // const movie = movies.find(m => m.id === parseInt(req.params.id));
     // if (!movie) res.status(404).send('The movie with the given ID was not found.');
     // res.send(movie);
@@ -26,10 +26,10 @@ router.get('/:id', async (req, res) => {
 
 // create a new movie
 router.post('/', async (req, res) => {
-    if(req.user.role !== 'admin') return res.status(403).send({ message: 'Access denied' });
+    if (req.user.role !== 'admin') return res.status(403).send({ message: 'Access denied' });
     await Movie.create(req.body)
-            .then(movie => res.send(movie))
-            .catch(err => console.error(err.message));
+        .then(movie => res.send({ movie, message: 'Movie created successfully' }))
+        .catch(err => console.error(err.message));
 
     // const movie = {
     //     id: movies.length + 1,
@@ -46,9 +46,10 @@ router.post('/', async (req, res) => {
 
 // update a movie
 router.put('/:id', async (req, res) => {
+    if (req.user.role !== 'admin') return res.status(403).send({ message: 'Access denied' });
     await Movie.findByIdAndUpdate(req.params.id, req.body)
-          .then(movie => res.send(movie))
-          .catch(err => console.error(err.message));
+        .then(movie => res.send(movie))
+        .catch(err => console.error(err.message));
     // const movie = movies.find(m => m.id === parseInt(req.params.id));
     // if (!movie) res.status(404).send('The movie with the given ID was not found.');
 
@@ -64,10 +65,11 @@ router.put('/:id', async (req, res) => {
 
 // delete a movie
 router.delete('/:id', async (req, res) => {
-    console.log(req.params.id);
+    // console.log(req.params.id);
+    if (req.user.role !== 'admin') return res.status(403).send({ message: 'Access denied' });
     await Movie.findOneAndDelete(req.params.id)
-          .then(movie => res.send(movie))
-          .catch(err => console.error(err.message));
+        .then(movie => res.send(movie))
+        .catch(err => console.error(err.message));
     // const movie = movies.find(m => m.id === parseInt(req.params.id));
     // if (!movie) res.status(404).send('The movie with the given ID was not found.');
 
@@ -77,22 +79,5 @@ router.delete('/:id', async (req, res) => {
     // res.send(movie);
 });
 
-
-
-// Middleware function to get a single movie by ID
-// async function getMovie(req, res, next) {
-//     let movie;
-//     try {
-//         movie = await Movie.findById(req.params.id);
-//         if (movie == null) {
-//             return res.status(404).json({ message: 'Movie not found' });
-//         }
-//     } catch (err) {
-//         return res.status(500).json({ message: err.message });
-//     }
-
-//     res.movie = movie;
-//     next();
-// }
 
 module.exports = router;
