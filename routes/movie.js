@@ -3,6 +3,7 @@ const router = express.Router();
 const Movie = require('../models/movie');
 const auth = require('../middleware/auth');
 
+// use auth middleware
 router.use(auth);
 
 // get all movies
