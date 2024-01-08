@@ -52,6 +52,9 @@ JWT_SECRET=your_secret
     "image": "your_image_url",
     "rating": "your_rating"
 }
+```
+- Headers:
+```json
 headers: {
     "Authorization": "your_token",
     "Content-Type": "application/json"
