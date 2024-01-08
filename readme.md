@@ -55,7 +55,7 @@ JWT_SECRET=your_secret
 ```
 - Headers:
 ```json
-headers: {
+{
     "Authorization": "your_token",
     "Content-Type": "application/json"
 }
