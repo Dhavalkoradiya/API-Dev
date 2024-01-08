@@ -29,7 +29,7 @@ JWT_SECRET=your_secret
 - Body:
 ```json
 {
-    "username": "your_username",
+    "email": "your_email",
     "password": "your_password"
 }
 ```
@@ -52,10 +52,13 @@ JWT_SECRET=your_secret
     "image": "your_image_url",
     "rating": "your_rating"
 }
+```json
 headers: {
-    "authentication": "your_token"
+    "Authorization": "your_token",
+    "Content-Type": "application/json"
 }
 ```
+
 - Response:
 ```json
 {
